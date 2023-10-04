@@ -25,6 +25,6 @@ sudo chown -R ubuntu:ubuntu /data/
 config_text="location /hbnb_static/ {
     alias /data/web_static/current/;
 }"
-sudo sed -i "{config_text}" /etc/nginx/sites-available/default
+sudo sed -i "$config_text" /etc/nginx/sites-available/default
 # nginx restsart
 sudo service nginx restart

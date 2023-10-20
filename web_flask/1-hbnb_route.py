@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-from flask import Flask
+"""Start a Flask web applicaton"""
 
-# Create a Flask application
+from flask import Flask
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """
-    Hello_hbnb function routing and return Hello_hbnb
+    Routing to root, strict_slashes ensure
     """
-    return 'Hello HBNB!'
+    return "Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """
-    hbnb routing and returning HBNB
+    Routing to /hbnb, strict_slashes ensure
     """
-    return 'HBNB'
+    return "HBNB"
 
-if __name__ == '__main__':
-    # Running the Flask app on 0.0.0.0:5000
+
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

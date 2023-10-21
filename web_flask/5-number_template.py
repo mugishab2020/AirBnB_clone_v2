@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Start a Flask web applicaton"""
 
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 
 
@@ -9,7 +10,6 @@ app = Flask(__name__)
 def hello_hbnb():
     """
     Routing to root, strict_slashes ensure
-    the URL works when it ends both with or without the /
     """
     return "Hello HBNB!"
 
@@ -18,7 +18,6 @@ def hello_hbnb():
 def hbnb():
     """
     Routing to /hbnb, strict_slashes ensure
-    the URL works when it ends both with or without the /
     """
     return "HBNB"
 
@@ -33,15 +32,21 @@ def c_is_fun(text):
 @app.route('/python/', defaults={'text': 'is_cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_is_cool(text):
-    """Routing to python with default value using Variables"""
+    """Routing python using Variables"""
     text = text.replace('_', ' ')
     return "Python {}".format(text)
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def is_a_numbet(n):
-    """Routing to n for intergers only"""
+    """Routing number"""
     return "{} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def is_a_numbet_template(n=None):
+    """Render a HTML page"""
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == "__main__":

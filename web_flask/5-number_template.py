@@ -44,7 +44,7 @@ def is_a_numbet(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def is_a_numbet_template(n=None):
+def is_a_numbet_template(n):
     """Render a HTML page"""
     return render_template('5-number.html', n=n)
 
